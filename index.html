@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body style="font-family:Arial;text-align:center;margin-top:50px;">
+
+<h1>My IP Information</h1>
+
+<button onclick="lookup()">Check My IP</button>
+
+<div id="result" style="margin-top:20px;"></div>
+
+<script>
+async function lookup() {
+  const response = await fetch("https://ipapi.co/json/");
+  const data = await response.json();
+
+  document.getElementById("result").innerHTML =
+    "<b>IP:</b> " + data.ip + "<br>" +
+    "<b>City:</b> " + data.city + "<br>" +
+    "<b>Region:</b> " + data.region + "<br>" +
+    "<b>Country:</b> " + data.country_name + "<br>" +
+    "<b>Postal Code:</b> " + data.postal;
+}
+</script>
+
+</body>
+</html>
